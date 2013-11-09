@@ -32,7 +32,7 @@ class FingerPrintParserTest extends FunSuite {
     val parsed = FingerPrintParser.parseAll(FingerPrintParser.fingerprint, fingerPrint)
     assert(parsed.successful)
     assert(parsed.get.screen == UserAgentScreen(768, 1366, 24))
-    assert(parsed.get.options == UserAgentOptions(true, true))
+    assert(parsed.get.options == UserAgentOptions(cookiesEnabled = true, sessionStorageEnabled = true))
     assert(parsed.get.plugins.size == 2)
   }
 
